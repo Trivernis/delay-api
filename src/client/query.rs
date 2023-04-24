@@ -1,4 +1,4 @@
-use chrono::{NaiveDate, NaiveDateTime, NaiveTime};
+use chrono::{NaiveDate, NaiveTime};
 use enumflags2::{bitflags, BitFlags};
 use lazy_regex::regex;
 use regex::Regex;
@@ -157,7 +157,6 @@ mod tests {
             })
             .await
             .unwrap();
-        println!("{entries:#?}");
         assert!(
             entries.is_empty() == false,
             "Hackescher Markt has trains arriving"
