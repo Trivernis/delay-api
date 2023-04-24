@@ -37,8 +37,8 @@ impl ToApiType for BoardType {
 #[repr(u16)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum ProductType {
-    ICE = 0b1000000000,
-    IC = 0b0100000000,
+    Ice = 0b1000000000,
+    Ic = 0b0100000000,
     InterRegio = 0b0010000000,
     Regio = 0b0001000000,
     SBahn = 0b0000100000,
@@ -116,7 +116,7 @@ impl BahnClient {
                     .value()
                     .attr("href")
                     .expect("Missing data url");
-                let capts = (&*LINE_DATA_REGEX).captures(&line_data).unwrap();
+                let capts = (*LINE_DATA_REGEX).captures(&line_data).unwrap();
                 let plan_arrival = NaiveTime::parse_from_str(&capts["plan_arr"], "%H:%M").unwrap();
                 let exp_arrival = NaiveTime::parse_from_str(&capts["exp_arr"], "%H:%M").unwrap();
                 let line_name = &capts["line"];
